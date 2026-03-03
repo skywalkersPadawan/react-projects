@@ -137,3 +137,25 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+
+# =========
+
+# Why ignore?
+# Because:
+# Secrets should never be committed
+# Public GitHub = exposed keys
+# Bots scan GitHub for leaked credentials
+# These are environment-specific config files.
+# Different keys for dev
+# Different keys for testing
+# Different keys for production
+
+# =========
