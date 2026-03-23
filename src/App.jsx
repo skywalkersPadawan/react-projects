@@ -1,5 +1,5 @@
 import "./App.css";
-import Accordian from "./components/accordian";
+import Accordion from "./components/accordion";
 import ModalTest from "./components/custom-modal-popup/modal-test";
 import TabTest from "./components/custom-tabs/tab-test";
 import FeatureFlags from "./components/feature-flag";
@@ -15,7 +15,7 @@ import ScrollToTopAndBottom from "./components/scroll-to-top-and-bottom";
 import ScrollToSection from "./components/scroll-to-top-and-bottom/scroll-to-section";
 import SearchAutocomplete from "./components/search-autocomplete-with-api";
 import StarRating from "./components/star-rating";
-import TicTacToe from "./components/tic-tact-toe";
+import TicTacToe from "./components/tic-tac-toe";
 import TreeView from "./components/tree-view";
 import menus from "./components/tree-view/data";
 import UseFetchHookTest from "./components/use-fetch/test";
@@ -25,8 +25,8 @@ import UseWindowResizeTest from "./components/use-window-resize/test";
 function App() {
   return (
     <div className="App">
-      {/* Accordian component */}
-      {/* <Accordian/> */}
+      {/* Accordion component */}
+      {/* <Accordion/> */}
       {/* Random color component */}
       {/* <RandomColor/> */}
 

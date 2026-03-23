@@ -2,7 +2,7 @@ import { useContext } from "react";
 import Accordian from "../accordian";
 import LightDarkMode from "../light-dark-mode";
 import RandomColor from "../random-color";
-import TicTacToe from "../tic-tact-toe";
+import TicTacToe from "../tic-tac-toe";
 import TreeView from "../tree-view";
 import { FeatureFlagsContext } from "./context";
 import menus from "../tree-view/data";
@@ -30,12 +30,12 @@ export default function FeatureFlags() {
     },
     {
       key: "showTreeView",
-      component: <TreeView  menus={menus} />,
+      component: <TreeView menus={menus} />,
     },
     {
-        key : 'showTabs',
-        component : <TabTest/>
-    }
+      key: "showTabs",
+      component: <TabTest />,
+    },
   ];
 
   function checkEnabledFlags(getCurrentKey) {
@@ -48,7 +48,7 @@ export default function FeatureFlags() {
     <div>
       <h1>Feature Flags</h1>
       {componentsToRender.map((componentItem) =>
-        checkEnabledFlags(componentItem.key) ? componentItem.component : null
+        checkEnabledFlags(componentItem.key) ? componentItem.component : null,
       )}
     </div>
   );

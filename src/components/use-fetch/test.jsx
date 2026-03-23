@@ -3,7 +3,7 @@ import useFetch from ".";
 export default function UseFetchHookTest() {
   const { data, error, pending } = useFetch(
     "https://dummyjson.com/products",
-    {}
+    {},
   );
 
   return (
