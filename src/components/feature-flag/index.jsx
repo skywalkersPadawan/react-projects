@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import Accordian from "../accordian";
+import Accordion from "../accordion";
 import LightDarkMode from "../light-dark-mode";
 import RandomColor from "../random-color";
 import TicTacToe from "../tic-tac-toe";
@@ -25,8 +25,8 @@ export default function FeatureFlags() {
       component: <RandomColor />,
     },
     {
-      key: "showAccordian",
-      component: <Accordian />,
+      key: "showAccordion",
+      component: <Accordion />,
     },
     {
       key: "showTreeView",

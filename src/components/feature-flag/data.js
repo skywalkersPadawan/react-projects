@@ -2,7 +2,7 @@ const dummyApiResponse = {
   showLightAndDarkMode: true,
   showTicTacToeBoard: true,
   showRandomColorGenerator: true,
-  showAccordian: true,
+  showAccordion: true,
   showTreeView: true,
   showTabs: true,
 };
