@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-// not logic hook custom hook to fetch products and handle load-more pagination logic (replace the comment start of file 2 with something else later on)
+// Custom hook to fetch products and manage load-more pagination
 // Move data fetching and side-effect logic into hook file for reusability; keep UI-related state in the component
 export default function useLoadMoreData() {
   const [loading, setLoading] = useState(false);
