@@ -1,9 +1,11 @@
 import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+// Import ALL your components
 import Accordion from "./components/accordion";
 import ModalTest from "./components/custom-modal-popup/modal-test";
 import TabTest from "./components/custom-tabs/tab-test";
 import FeatureFlags from "./components/feature-flag";
-import FeatureFlagGlobalState from "./components/feature-flag/context";
 import GithubProfileFinder from "./components/github-profile-finder";
 import ImageSlider from "./components/image-slider";
 import LightDarkMode from "./components/light-dark-mode";
@@ -12,84 +14,104 @@ import QRCodeGenerator from "./components/qr-code-generator";
 import RandomColor from "./components/random-color";
 import ScrollIndicator from "./components/scroll-indicator";
 import ScrollToTopAndBottom from "./components/scroll-to-top-and-bottom";
-import ScrollToSection from "./components/scroll-to-top-and-bottom/scroll-to-section";
 import SearchAutocomplete from "./components/search-autocomplete-with-api";
 import StarRating from "./components/star-rating";
 import TicTacToe from "./components/tic-tac-toe";
 import TreeView from "./components/tree-view";
-import menus from "./components/tree-view/data";
 import UseFetchHookTest from "./components/use-fetch/test";
 import UseOnclickOutsideTest from "./components/use-outside-click/test";
 import UseWindowResizeTest from "./components/use-window-resize/test";
 
+// replace the home page with the import needed from the pages for navigation
+import Home from "./pages/Home";
+
 function App() {
   return (
-    <div className="App">
-      {/* Accordion component */}
-      {/* <Accordion/> */}
-      {/* Random color component */}
-      {/* <RandomColor/> */}
+    <Router>
+      <Routes>
+        <Route
+          path="/"
+          element={<Home />}
+        />
 
-      {/* Star rating component */}
-      {/* <StarRating noOfStars={10}/> */}
-
-      {/* Image slider component */}
-      {/* <ImageSlider
-        url={"https://picsum.photos/v2/list"}
-        page={"1"}
-        limit={"10"}
-      /> */}
-
-      {/* Load more products component */}
-      {/* <LoadMoreData/> */}
-
-      {/* Tree view component/menu UI component / recursive navigation menu */}
-      {/* <TreeView menus={menus} /> */}
-
-      {/* QR code generator */}
-      {/* <QRCodeGenerator/> */}
-
-      {/* light and dark theme switch */}
-      {/* <LightDarkMode/> */}
-
-      {/* Scroll indicator component */}
-      {/* <ScrollIndicator url={"https://dummyjson.com/products?limit=100"} /> */}
-
-      {/* Custom tabs component */}
-      {/* <TabTest /> */}
-
-      {/* Custom Modal Component */}
-      {/* <ModalTest/> */}
-
-      {/* Github profile finder */}
-      {/* <GithubProfileFinder/> */}
-
-      {/* Search Autocomplete */}
-      {/* <SearchAutocomplete/> */}
-
-      {/* Tic tac toe */}
-      {/* <TicTacToe/> */}
-
-      {/* Feature Flag IMplementation */}
-      {/* <FeatureFlagGlobalState>
-        <FeatureFlags />
-      </FeatureFlagGlobalState> */}
-
-      {/* useFetch - Custom Hook Test*/}
-      {/* <UseFetchHookTest/> */}
-
-      {/* Use Onclick Outside Hook Test */}
-      {/* <UseOnclickOutsideTest/> */}
-
-      {/* Use Window Resize Hook Test */}
-      {/* <UseWindowResizeTest/> */}
-
-      {/* Scroll to Top and Bottom */}
-      {/* <ScrollToTopAndBottom/> */}
-
-      {/* Scroll to a Particular Section */}
-      <ScrollToSection />
-    </div>
+        <Route
+          path="/accordion"
+          element={<Accordion />}
+        />
+        <Route
+          path="/modal"
+          element={<ModalTest />}
+        />
+        <Route
+          path="/tabs"
+          element={<TabTest />}
+        />
+        <Route
+          path="/feature-flags"
+          element={<FeatureFlags />}
+        />
+        <Route
+          path="/github"
+          element={<GithubProfileFinder />}
+        />
+        <Route
+          path="/slider"
+          element={<ImageSlider />}
+        />
+        <Route
+          path="/theme"
+          element={<LightDarkMode />}
+        />
+        <Route
+          path="/load-more"
+          element={<LoadMoreData />}
+        />
+        <Route
+          path="/qr"
+          element={<QRCodeGenerator />}
+        />
+        <Route
+          path="/color"
+          element={<RandomColor />}
+        />
+        <Route
+          path="/scroll-indicator"
+          element={<ScrollIndicator />}
+        />
+        <Route
+          path="/scroll"
+          element={<ScrollToTopAndBottom />}
+        />
+        <Route
+          path="/search"
+          element={<SearchAutocomplete />}
+        />
+        <Route
+          path="/rating"
+          element={<StarRating />}
+        />
+        <Route
+          path="/tic-tac-toe"
+          element={<TicTacToe />}
+        />
+        <Route
+          path="/tree"
+          element={<TreeView />}
+        />
+        <Route
+          path="/use-fetch"
+          element={<UseFetchHookTest />}
+        />
+        <Route
+          path="/use-click"
+          element={<UseOnclickOutsideTest />}
+        />
+        <Route
+          path="/use-resize"
+          element={<UseWindowResizeTest />}
+        />
+      </Routes>
+    </Router>
   );
 }
 
