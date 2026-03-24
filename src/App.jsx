@@ -22,12 +22,16 @@ import UseFetchHookTest from "./components/use-fetch/test";
 import UseOnclickOutsideTest from "./components/use-outside-click/test";
 import UseWindowResizeTest from "./components/use-window-resize/test";
 
-// replace the home page with the import needed from the pages for navigation
+// Import Home page for route navigation for pages that don't have their own route
 import Home from "./pages/Home";
+
+// Import Navbar component for route navigation
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
     <Router>
+      <Navbar />
       <Routes>
         <Route
           path="/"
