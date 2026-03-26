@@ -15,9 +15,8 @@ export default function FeatureFlagGlobalState({ children }) {
       setEnabledFlags(response);
       setLoading(false);
     } catch (error) {
-      console.log(error);
       setLoading(false);
-      throw new Error(error);
+      // TODO: handle error state (e.g., show UI feedback)
     }
   }
 

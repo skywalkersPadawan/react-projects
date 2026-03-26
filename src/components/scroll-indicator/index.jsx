@@ -17,7 +17,6 @@ export default function ScrollIndicator({ url }) {
         setLoading(false);
       }
     } catch (e) {
-      console.log(e);
       setErrorMessage(e.message);
     }
   }
@@ -27,13 +26,6 @@ export default function ScrollIndicator({ url }) {
   }, [url]);
 
   function handleScrollPercentage() {
-    console.log(
-      document.body.scrollTop,
-      document.documentElement.scrollTop,
-      document.documentElement.scrollHeight,
-      document.documentElement.clientHeight
-    );
-
     const howMuchScrolled =
       document.body.scrollTop || document.documentElement.scrollTop;
 
@@ -48,11 +40,9 @@ export default function ScrollIndicator({ url }) {
     window.addEventListener("scroll", handleScrollPercentage);
 
     return () => {
-      window.removeEventListener("scroll", () => {});
+      window.removeEventListener("scroll", handleScrollPercentage);
     };
   }, []);
-
-  console.log(data, scrollPercentage);
 
   if (errorMessage) {
     return <div>Error ! {errorMessage}</div>;
@@ -75,8 +65,9 @@ export default function ScrollIndicator({ url }) {
       </div>
       <div className="data-container">
         {data && data.length > 0
-          ? data.map((dataItem) => <p>{dataItem.title}</p>)
+          ? data.map((dataItem) => <p key={dataItem.id}>{dataItem.title}</p>)
           : null}
+        {/* event listeners should use the same function reference */}
       </div>
     </div>
   );

@@ -25,96 +25,97 @@ import UseWindowResizeTest from "./components/use-window-resize/test";
 // Import Home page for route navigation for pages that don't have their own route
 import Home from "./pages/Home";
 
-// Import Navbar component for route navigation
-import Navbar from "./components/Navbar";
+// MainLayout is used to cover all of the routes
+import MainLayout from "./layouts/MainLayout";
 
 function App() {
   return (
     <Router>
-      <Navbar />
-      <Routes>
-        <Route
-          path="/"
-          element={<Home />}
-        />
+      <MainLayout>
+        <Routes>
+          <Route
+            path="/"
+            element={<Home />}
+          />
 
-        <Route
-          path="/accordion"
-          element={<Accordion />}
-        />
-        <Route
-          path="/modal"
-          element={<ModalTest />}
-        />
-        <Route
-          path="/tabs"
-          element={<TabTest />}
-        />
-        <Route
-          path="/feature-flags"
-          element={<FeatureFlags />}
-        />
-        <Route
-          path="/github"
-          element={<GithubProfileFinder />}
-        />
-        <Route
-          path="/slider"
-          element={<ImageSlider />}
-        />
-        <Route
-          path="/theme"
-          element={<LightDarkMode />}
-        />
-        <Route
-          path="/load-more"
-          element={<LoadMoreData />}
-        />
-        <Route
-          path="/qr"
-          element={<QRCodeGenerator />}
-        />
-        <Route
-          path="/color"
-          element={<RandomColor />}
-        />
-        <Route
-          path="/scroll-indicator"
-          element={<ScrollIndicator />}
-        />
-        <Route
-          path="/scroll"
-          element={<ScrollToTopAndBottom />}
-        />
-        <Route
-          path="/search"
-          element={<SearchAutocomplete />}
-        />
-        <Route
-          path="/rating"
-          element={<StarRating />}
-        />
-        <Route
-          path="/tic-tac-toe"
-          element={<TicTacToe />}
-        />
-        <Route
-          path="/tree"
-          element={<TreeView />}
-        />
-        <Route
-          path="/use-fetch"
-          element={<UseFetchHookTest />}
-        />
-        <Route
-          path="/use-click"
-          element={<UseOnclickOutsideTest />}
-        />
-        <Route
-          path="/use-resize"
-          element={<UseWindowResizeTest />}
-        />
-      </Routes>
+          <Route
+            path="/accordion"
+            element={<Accordion />}
+          />
+          <Route
+            path="/modal"
+            element={<ModalTest />}
+          />
+          <Route
+            path="/tabs"
+            element={<TabTest />}
+          />
+          <Route
+            path="/feature-flags"
+            element={<FeatureFlags />}
+          />
+          <Route
+            path="/github"
+            element={<GithubProfileFinder />}
+          />
+          <Route
+            path="/slider"
+            element={<ImageSlider />}
+          />
+          <Route
+            path="/theme"
+            element={<LightDarkMode />}
+          />
+          <Route
+            path="/load-more"
+            element={<LoadMoreData />}
+          />
+          <Route
+            path="/qr"
+            element={<QRCodeGenerator />}
+          />
+          <Route
+            path="/color"
+            element={<RandomColor />}
+          />
+          <Route
+            path="/scroll-indicator"
+            element={<ScrollIndicator />}
+          />
+          <Route
+            path="/scroll"
+            element={<ScrollToTopAndBottom />}
+          />
+          <Route
+            path="/search"
+            element={<SearchAutocomplete />}
+          />
+          <Route
+            path="/rating"
+            element={<StarRating />}
+          />
+          <Route
+            path="/tic-tac-toe"
+            element={<TicTacToe />}
+          />
+          <Route
+            path="/tree"
+            element={<TreeView />}
+          />
+          <Route
+            path="/use-fetch"
+            element={<UseFetchHookTest />}
+          />
+          <Route
+            path="/use-click"
+            element={<UseOnclickOutsideTest />}
+          />
+          <Route
+            path="/use-resize"
+            element={<UseWindowResizeTest />}
+          />
+        </Routes>
+      </MainLayout>
     </Router>
   );
 }

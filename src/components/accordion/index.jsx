@@ -18,14 +18,12 @@ export default function Accordion() {
     let cpyMutiple = [...multiple];
     const findIndexOfCurrentId = cpyMutiple.indexOf(getCurrentId);
 
-    console.log(findIndexOfCurrentId);
     if (findIndexOfCurrentId === -1) cpyMutiple.push(getCurrentId);
     else cpyMutiple.splice(findIndexOfCurrentId, 1);
 
     setMultiple(cpyMutiple);
   }
 
-  console.log(selected, multiple);
   return (
     <div className="acc-wrapper">
       <button onClick={() => setEnableMultiSelection(!enableMultiSelection)}>

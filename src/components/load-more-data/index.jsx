@@ -4,17 +4,19 @@ import useLoadMoreData from "../../hooks/useLoadMoreData";
 // file 1 component UI layer
 
 export default function LoadMoreData() {
-  const { products, loading, disableButton, loadMore } = useLoadMoreData();
+  const { data, loading, error, disableButton, loadMore } = useLoadMoreData();
 
   if (loading) {
     return <div>Loading data ! Please wait.</div>;
   }
 
+  if (error) return <div>Error loading products</div>;
+
   return (
     <div className="load-more-container">
       <div className="product-container">
-        {products && products.length
-          ? products.map((item) => (
+        {data && data.length
+          ? data.map((item) => (
               <div
                 className="product"
                 key={item.id}

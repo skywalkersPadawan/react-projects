@@ -1,6 +1,39 @@
-# ReactProjects
+# React Mini Projects Hub
 
-A curated collection of React-based UI and logic-driven mini applications built to explore core concepts such as state management, component architecture, reusable patterns, and interactive user interfaces.
+Curated collection of React-based UI and logic-driven mini applications built to explore core concepts such as state management, component architecture, reusable patterns, and interactive user interfaces.
+
+## 🚀 Features
+
+- Multiple interactive UI components (Accordion, Modal, Tabs, etc.)
+- Global search across projects
+- Client-side routing with React Router
+- Custom hooks for reusable logic
+- Clean component architecture (UI vs logic separation)
+
+## 🧠 Key Improvements
+
+Inspired by a freeCodeCamp tutorial, extended into a scalable application with:
+
+- Centralized routing system
+- Reusable custom hooks
+- Standardized data-fetching patterns
+- Improved project structure
+
+---
+
+## 🛠 Tech Stack
+
+- React
+- React Router
+- JavaScript (ES6+)
+- CSS
+
+## ▶️ Running Locally
+
+```bash
+npm install
+npm start
+```
 
 # Getting Started with Create React App
 
@@ -73,5 +106,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
-
 This project is a WIP(work in progress) will be adding changes and working on making security updates to the repo after creating a branch for testing and security and pull requests
+
+```
+
+```

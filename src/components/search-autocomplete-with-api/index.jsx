@@ -1,73 +1,79 @@
 import { useEffect, useState } from "react";
-import Suggestions from "./suggesstions";
+import "./scroll.css";
 
-export default function SearchAutocomplete() {
+export default function ScrollIndicator({ url }) {
+  const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [users, setUsers] = useState([]);
-  const [error, setError] = useState(null);
-  const [searchParam, setSearchParam] = useState("");
-  const [showDropdown, setShowDropdown] = useState(false);
-  const [filteredUsers, setFilteredUsers] = useState([]);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [scrollPercentage, setScrollPercentage] = useState(0);
 
-  function handleChange(event) {
-    const query = event.target.value.toLowerCase();
-    setSearchParam(query);
-    if (query.length > 1) {
-      const filteredData =
-        users && users.length
-          ? users.filter((item) => item.toLowerCase().indexOf(query) > -1)
-          : [];
-      setFilteredUsers(filteredData);
-      setShowDropdown(true);
-    } else {
-      setShowDropdown(false);
-    }
-  }
-
-  function handleClick(event){
-    setShowDropdown(false)
-    setSearchParam(event.target.innerText)
-    setFilteredUsers([])
-  }
-
-  async function fetchListOfUsers() {
+  async function fetchData(getUrl) {
     try {
       setLoading(true);
-      const response = await fetch("https://dummyjson.com/users");
+      const response = await fetch(getUrl);
       const data = await response.json();
 
-      if (data && data.users && data.users.length) {
-        setUsers(data.users.map((userItem) => userItem.firstName));
-        setLoading(false);
-        setError(null);
+      if (data && data.products && data.products.length > 0) {
+        setData(data.products);
       }
-    } catch (error) {
+
       setLoading(false);
-      console.log(error);
-      setError(error);
+    } catch (e) {
+      setErrorMessage(e.message);
+      setLoading(false);
     }
   }
 
   useEffect(() => {
-    fetchListOfUsers();
+    fetchData(url);
+  }, [url]);
+
+  function handleScrollPercentage() {
+    const howMuchScrolled =
+      document.body.scrollTop || document.documentElement.scrollTop;
+
+    const height =
+      document.documentElement.scrollHeight -
+      document.documentElement.clientHeight;
+
+    if (height > 0) {
+      setScrollPercentage((howMuchScrolled / height) * 100);
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScrollPercentage);
+
+    return () => {
+      window.removeEventListener("scroll", handleScrollPercentage);
+    };
   }, []);
 
-  console.log(users, filteredUsers);
+  if (errorMessage) {
+    return <div>Error! {errorMessage}</div>;
+  }
+
+  if (loading) {
+    return <div>Loading data! Please wait</div>;
+  }
 
   return (
-    <div className="search-autocomplete-container">
-      {loading ? (
-        <h1>Loading Data ! Please wait</h1>
-      ) : (
-        <input
-          value={searchParam}
-          name="search-users"
-          placeholder="Search Users here..."
-          onChange={handleChange}
-        />
-      )}
+    <div>
+      <div className="top-container">
+        <h1>Custom Scroll Indicator</h1>
+        <div className="scroll-progress-tracking-container">
+          <div
+            className="current-progress-bar"
+            style={{ width: `${scrollPercentage}%` }}
+          ></div>
+        </div>
+      </div>
 
-      {showDropdown && <Suggestions handleClick={handleClick} data={filteredUsers} />}
+      <div className="data-container">
+        {data && data.length > 0
+          ? data.map((dataItem) => <p key={dataItem.id}>{dataItem.title}</p>)
+          : null}
+      </div>
     </div>
   );
 }

@@ -7,11 +7,11 @@ export default function useLocalStroage(key, defaultValue) {
 
     try {
       currentValue = JSON.parse(
-        localStorage.getItem(key) || String(defaultValue)
+        localStorage.getItem(key) || String(defaultValue),
       );
     } catch (error) {
-      console.log(error);
       currentValue = defaultValue;
+      // TODO: optionally track storage parse errors
     }
 
     return currentValue;

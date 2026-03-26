@@ -7,6 +7,7 @@ export default function useLoadMoreData() {
   const [products, setProducts] = useState([]);
   const [count, setCount] = useState(0);
   const [disableButton, setDisableButton] = useState(false);
+  const [error, setError] = useState(null);
 
   // move logic here
   async function fetchProducts() {
@@ -20,14 +21,12 @@ export default function useLoadMoreData() {
 
       const result = await response.json();
 
-      if (result && result.products && result.products.length) {
+      if (result?.products?.length) {
         setProducts((prevData) => [...prevData, ...result.products]);
         setLoading(false);
       }
-
-      console.log(result);
     } catch (e) {
-      console.log(e);
+      setError(e);
       setLoading(false);
     }
   }
@@ -41,8 +40,9 @@ export default function useLoadMoreData() {
   }, [products]);
 
   return {
-    products,
+    data: products,
     loading,
+    error,
     disableButton,
     loadMore: () => setCount((prev) => prev + 1),
   };
