@@ -9,38 +9,37 @@ export default function Navbar({ theme, setTheme }) {
         display: "flex",
         alignItems: "center",
         gap: "20px",
-        color: "#fff",
+        color: "#f9fafb",
+        textDecoration: "none",
+        fontWeight: "500",
       }}
     >
       <span style={{ fontWeight: "bold" }}>React Hub</span>
       <div style={{ display: "flex", gap: "15px" }}>
         <Link
           to="/"
-          style={{ marginRight: "10px" }}
+          // style={{ marginRight: "10px" }}
         >
           Home
         </Link>
-        <Link
-          to="/accordion"
-          style={{ marginRight: "10px" }}
+        <a
+          href="https://www.google.com"
+          target="_blank"
+          rel="noreferrer"
         >
-          Accordion
-        </Link>
-        <Link
-          to="/modal"
-          style={{ marginRight: "10px" }}
+          Google
+        </a>
+
+        <a
+          href="https://www.youtube.com"
+          target="_blank"
+          rel="noreferrer"
         >
-          Modal
-        </Link>
-        <Link
-          to="/tabs"
-          style={{ marginRight: "10px" }}
-        >
-          Tabs
-        </Link>
+          YouTube
+        </a>
         <Link
           to="/github"
-          style={{ marginRight: "10px" }}
+          // style={{ marginRight: "10px" }}
         >
           GitHub
         </Link>

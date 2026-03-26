@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const projects = [
   { name: "Accordion", path: "/accordion" },
@@ -28,6 +29,13 @@ export default function Home() {
   const filteredProjects = projects.filter((project) =>
     project.name.toLowerCase().includes(query.toLowerCase()),
   );
+  const navigate = useNavigate();
+
+  function handleSearchSubmit(e) {
+    if (e.key === "Enter" && filteredProjects.length > 0) {
+      navigate(filteredProjects[0].path);
+    }
+  }
   return (
     <div style={{ padding: "20px" }}>
       <h1>React Mini Projects</h1>
@@ -37,6 +45,7 @@ export default function Home() {
         placeholder="Search projects..."
         value={query}
         onChange={(e) => setQuery(e.target.value)}
+        onKeyDown={handleSearchSubmit}
         style={{
           padding: "10px",
           width: "100%",

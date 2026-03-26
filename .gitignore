@@ -159,3 +159,5 @@ vite.config.ts.timestamp-*
 # Different keys for production
 
 # =========
+
+.qodo
