@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-export default function Navbar() {
+export default function Navbar({ theme, setTheme }) {
   return (
     <nav style={{ padding: "10px", borderBottom: "1px solid #ccc" }}>
       <Link
@@ -33,6 +33,12 @@ export default function Navbar() {
       >
         GitHub
       </Link>
+      <button
+        onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+        style={{ marginLeft: "auto" }}
+      >
+        Toggle Theme
+      </button>
     </nav>
   );
 }
