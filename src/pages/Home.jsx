@@ -25,6 +25,9 @@ const projects = [
 
 export default function Home() {
   const [query, setQuery] = useState("");
+  const filteredProjects = projects.filter((project) =>
+    project.name.toLowerCase().includes(query.toLowerCase()),
+  );
   return (
     <div style={{ padding: "20px" }}>
       <h1>React Mini Projects</h1>
@@ -43,17 +46,35 @@ export default function Home() {
         }}
       />
 
-      <ul>
-        {projects
-          .filter((project) =>
-            project.name.toLowerCase().includes(query.toLowerCase()),
-          )
-          .map((project) => (
-            <li key={project.path}>
-              <Link to={project.path}>{project.name}</Link>
-            </li>
-          ))}
-      </ul>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
+          gap: "15px",
+        }}
+      >
+        {filteredProjects.map((project) => (
+          <Link
+            key={project.path}
+            to={project.path}
+            style={{
+              padding: "15px",
+              background: "#fff",
+              borderRadius: "10px",
+              textDecoration: "none",
+              color: "#333",
+              boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
+              transition: "0.2s",
+            }}
+          >
+            {project.name}
+          </Link>
+        ))}
+      </div>
+
+      {filteredProjects.length === 0 && (
+        <p style={{ marginTop: "10px" }}>No results found</p>
+      )}
     </div>
   );
 }

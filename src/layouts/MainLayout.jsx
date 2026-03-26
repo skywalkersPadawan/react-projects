@@ -1,5 +1,5 @@
 import Navbar from "../components/Navbar";
-import useLocalStorage from "../components/light-dark-mode/useLocalStroage";
+import useLocalStorage from "../components/light-dark-mode/useLocalStorage";
 
 export default function MainLayout({ children }) {
   const [theme, setTheme] = useLocalStorage("theme", "light");
