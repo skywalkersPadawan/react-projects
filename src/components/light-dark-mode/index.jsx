@@ -1,4 +1,4 @@
-import useLocalStroage from "./useLocalStroage";
+import useLocalStroage from "./useLocalStorage";
 import "./theme.css";
 
 export default function LightDarkMode() {
